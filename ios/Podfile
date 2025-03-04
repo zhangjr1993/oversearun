@@ -1,0 +1,114 @@
+source 'https://github.com/CocoaPods/Specs.git' # 官方库
+
+project 'Runner.xcodeproj'
+
+platform :ios, '15.0'
+
+inhibit_all_warnings!
+
+# 这里需要添加
+workspace 'Runner.xcworkspace'
+
+# APP需要的Swift库
+
+def swift_Third
+  
+  # 代码规范
+  pod 'SwiftLint', '0.58.0', configurations: ['Debug']
+  # 网络质量监控
+  pod 'ReachabilitySwift', '~> 5.2.4'
+  
+  # 数据库
+  pod 'WCDB.swift', '~> 2.1.9'
+
+  
+  # 视图、约束布局
+  pod 'SnapKit', '~> 5.7.1'
+  pod 'NVActivityIndicatorView', '~>5.2.0'
+  pod 'ProgressHUD', '~>14.1.1'
+  
+  # 网络库
+  pod 'Moya', '~> 15.0.0'
+  pod 'SmartCodable', '~> 4.3.2'
+  # 解析和处理JSON数据，不用多层判断和解包
+  pod 'SwiftyJSON', '~> 5.0.2'
+  pod 'SwiftyRSA', '~> 1.7.0'
+
+  # 加密
+  pod 'CryptoSwift', '~> 1.8.3'
+
+  # 图片加载
+#  pod 'Kingfisher', '~> 8.1.3'
+  # 图片选择
+  pod 'HXPhotoPicker'
+  
+  # 错误提示信息
+  pod 'Then', '3.0.0'
+  pod 'IQKeyboardManagerSwift', '~> 8.0.0'
+  
+  # 响应监听
+  pod 'RxSwift', '~>6.8.0'
+  pod 'RxCocoa', '~>6.8.0'
+  
+  pod 'JXSegmentedView', '~> 1.4.1'
+  pod 'JXPagingView/Paging', '~> 2.1.3'
+
+  pod 'JXBanner', '~> 0.3.6'
+
+  end
+
+# APP需要的三方服务
+def service_Third
+  
+  # 腾讯IM相关，另手动添加了UI库TUIKit
+  pod 'TXIMSDK_Plus_iOS', '7.8.5483'
+
+  # FireBase 推送、崩溃
+  pod 'Firebase/Crashlytics', '~> 11.7.0'
+  pod 'Firebase/Messaging', '~> 11.7.0'
+  pod 'Firebase/Analytics', '~> 11.7.0'
+
+  # Google 登录
+  pod 'GoogleSignIn', '~> 8.0.0'
+
+  
+  
+end
+
+# APP需要的OC库
+def oc_Third
+           
+   # 下拉刷新
+   pod 'MJRefresh', '~> 3.7.9'
+  
+   pod 'YYKit',  :path => './LocalLib/YYKit'
+   
+   pod 'SSZipArchive'
+
+end
+
+target 'Runner' do
+
+  use_frameworks!
+
+  use_modular_headers!
+  swift_Third
+  oc_Third
+  service_Third
+    
+end
+
+
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    
+    
+    target.build_configurations.each do |config|
+      config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+
+    end
+  end
+end
+

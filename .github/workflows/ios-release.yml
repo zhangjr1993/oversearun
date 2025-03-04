@@ -117,17 +117,17 @@ jobs:
       #     git clone https://github.com/ZhangLi1984/itsm.git
       #     ./itsm/bin/iTMSTransporter -assetFile $IPA_FILE_NAME -u $APPLE_USERNAME -p $APPLE_PASSWORD -m upload -asc_provider $APPLE_ASC_PROVIDER -v verbose
 
-      - name: Upload to App Store using altool
-        env:
-          IPA_PATH: "build/ios/ipa/aisea.ipa"
-          APPLE_ID: "pjmmh6jbh@hotmail.com"
-          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
-        run: |
-          xcrun altool --upload-app -f "$IPA_PATH" \
-            -t ios \
-            -u "$APPLE_ID" \
-            -p "$APP_SPECIFIC_PASSWORD" \
-            --verbose
+#      - name: Upload to App Store using altool
+#        env:
+#          IPA_PATH: "build/ios/ipa/aisea.ipa"
+#          APPLE_ID: "pjmmh6jbh@hotmail.com"
+#          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
+#        run: |
+#          xcrun altool --upload-app -f "$IPA_PATH" \
+#            -t ios \
+#            -u "$APPLE_ID" \
+#            -p "$APP_SPECIFIC_PASSWORD" \
+#            --verbose
 
 #      - name: Upload to App Store using altool
 #        env:

@@ -1,0 +1,44 @@
+{
+  "name": "YYKit",
+  "version": "0.0.1",
+  "summary": "YYKit  iOS 17 适配版本",
+  "platforms": {
+    "ios": "13.0"
+  },
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "description": "TODO: YYKit V1.0.9 版本 iOS17 适配版本 本地库",
+  "homepage": "http://www.guojiang.com/YYkit",
+  "authors": {
+    "AIRun": "AIRun@guojiang.tv"
+  },
+  "source": {
+    "git": "http://www.guojiang.com/YYkit.git",
+    "tag": "0.0.1"
+  },
+  "requires_arc": true,
+  "source_files": [
+    "YYKit",
+    "YYKit/**/*.{h,m}"
+  ],
+  "exclude_files": "Classes/Exclude",
+  "ios": {
+    "vendored_frameworks": "Vendor/WebP.framework",
+    "exclude_files": [
+      "YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}",
+      "YYKit/Base/Foundation/NSThread+YYAdd.{h,m}"
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "no-arc",
+      "requires_arc": false,
+      "source_files": [
+        "YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}",
+        "YYKit/Base/Foundation/NSThread+YYAdd.{h,m}"
+      ]
+    }
+  ]
+}

@@ -8,8 +8,6 @@
 import UIKit
 import NVActivityIndicatorView
 
-extension JXPagingListContainerView: @retroactive JXSegmentedViewListContainer {}
-
 class MineMainController: BaseViewController {
     
     enum RefreshState {
@@ -127,7 +125,7 @@ extension MineMainController{
         view.addSubview(pagingView)
         view.addSubview(indicatorView)
         pagingView.listContainerView.backgroundColor = .clear
-        segmentView.listContainer = pagingView.listContainerView
+        segmentView.listContainer = pagingView.listContainerView as? any JXSegmentedViewListContainer
     }
     /// 设置约束
     func createUILimit(){

@@ -84,11 +84,17 @@ jobs:
           elif [ -f "build/ios/Release-iphoneos/Runner.ipa" ]; then
               cp build/ios/Release-iphoneos/Runner.ipa build/ios/ipa/aisea.ipa
           fi
+#          # 如果 IPA 在其他位置，复制到期望的位置
+#          if [ -f "build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa" ]; then
+#              cp build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa build/ios/ipa/aisea.ipa
+#          elif [ -f "build/ios/Release-iphoneos/Runner.ipa" ]; then
+#              cp build/ios/Release-iphoneos/Runner.ipa build/ios/ipa/aisea.ipa
+#          fi
 
       - name: Archive IPA
         uses: actions/upload-artifact@v4
         with:
-          name: release-ipa
+          name: aisea
           path: |
             build/ios/ipa
             build/ios/archive/Runner.xcarchive/Products/Applications
@@ -119,38 +125,38 @@ jobs:
 
    
 
-#      - name: Upload to App Store using altool
-#        env:
-#          IPA_PATH: "build/ios/ipa/aisea.ipa"
-#          APPLE_ID: "pjmmh6jbh@hotmail.com"
-#          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
-#        run: |
-#          xcrun altool --upload-app -f "$IPA_PATH" \
-#            -t ios \
-#            -u "$APPLE_ID" \
-#            -p "$APP_SPECIFIC_PASSWORD" \
-#            --verbose
-
       - name: Upload to App Store using altool
         env:
+          IPA_PATH: "build/ios/ipa/aisea.ipa"
           APPLE_ID: "pjmmh6jbh@hotmail.com"
           APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
         run: |
-          # 首先找到 IPA 文件
-          IPA_PATH=$(find build -name "*.ipa" -type f | head -n 1)
-
-          if [ -z "$IPA_PATH" ]; then
-            echo "Error: No IPA file found!"
-            exit 1
-          fi
-
-          echo "Found IPA at: $IPA_PATH"
-          echo "IPA file details:"
-          ls -l "$IPA_PATH"
-
-          echo "Attempting to upload IPA..."
           xcrun altool --upload-app -f "$IPA_PATH" \
             -t ios \
             -u "$APPLE_ID" \
             -p "$APP_SPECIFIC_PASSWORD" \
             --verbose
+
+#      - name: Upload to App Store using altool
+#        env:
+#          APPLE_ID: "pjmmh6jbh@hotmail.com"
+#          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
+#        run: |
+#          # 首先找到 IPA 文件
+#          IPA_PATH=$(find build -name "*.ipa" -type f | head -n 1)
+#
+#          if [ -z "$IPA_PATH" ]; then
+#            echo "Error: No IPA file found!"
+#            exit 1
+#          fi
+#
+#          echo "Found IPA at: $IPA_PATH"
+#          echo "IPA file details:"
+#          ls -l "$IPA_PATH"
+#
+#          echo "Attempting to upload IPA..."
+#          xcrun altool --upload-app -f "$IPA_PATH" \
+#            -t ios \
+#            -u "$APPLE_ID" \
+#            -p "$APP_SPECIFIC_PASSWORD" \
+#            --verbose

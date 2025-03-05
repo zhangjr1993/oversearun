@@ -71,29 +71,30 @@ jobs:
         with:
           name: release-ipa
           path: build/ios/ipa
+          
 
-#      - name: Check IPA Path
-#        run: |
-#          echo "=================== IPA Location Check ==================="
-#          echo "Checking build/ios directory:"
-#          ls -R build/ios/
-#          
-#          echo "\nChecking for IPA files in build directory:"
-#          find build -name "*.ipa" -type f
-#          
-#          echo "\nChecking specific paths:"
-#          for path in \
-#            "build/ios/ipa" \
-#            "build/ios/archive/Runner.xcarchive/Products/Applications" \
-#            "build/ios/Release-iphoneos"
-#          do
-#            echo "\nChecking $path:"
-#            if [ -d "$path" ]; then
-#              ls -la "$path"
-#            else
-#              echo "Directory does not exist: $path"
-#            fi
-#          done
+      - name: Check IPA Path
+        run: |
+          echo "=================== IPA Location Check ==================="
+          echo "Checking build/ios directory:"
+          ls -R build/ios/
+          
+          echo "\nChecking for IPA files in build directory:"
+          find build -name "*.ipa" -type f
+          
+          echo "\nChecking specific paths:"
+          for path in \
+            "build/ios/ipa" \
+            "build/ios/archive/Runner.xcarchive/Products/Applications" \
+            "build/ios/Release-iphoneos"
+          do
+            echo "\nChecking $path:"
+            if [ -d "$path" ]; then
+              ls -la "$path"
+            else
+              echo "Directory does not exist: $path"
+            fi
+          done
 
    
 

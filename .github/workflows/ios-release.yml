@@ -56,7 +56,8 @@ jobs:
       - uses: cedvdb/action-flutter-build-ios@v1
         with:
           build-cmd: |
-            flutter build ipa --release --export-options-plist=ios/ExportOptions.plist --no-tree-shake-icons
+            mkdir -p build/ios/ipa
+            flutter build ipa --release --export-options-plist=ios/ExportOptions.plist --no-tree-shake-icons --output=build/ios/ipa/aisea.ipa
           certificate-base64: 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
           
           certificate-password: 123456
@@ -65,20 +66,34 @@ jobs:
          
           keychain-password: 111111
 
-      # 添加检查步骤
-      - name: Check IPA Path
-        run: |
-          echo "检查 build/ios/ipa 目录内容："
-          ls -la build/ios/ipa/
-          echo "检查 build/ios 目录内容："
-          ls -la build/ios/
+       # 添加详细的构建产物检查
+       - name: Check Build Artifacts
+         run: |
+           echo "检查构建目录结构："
+           ls -R build/
+          
+           echo "检查 IPA 文件："
+           find build -name "*.ipa" -type f
+          
+           # 确保输出目录存在
+           mkdir -p build/ios/ipa
+          
+           # 如果 IPA 在其他位置，复制到期望的位置
+           if [ -f "build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa" ]; then
+             cp build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa build/ios/ipa/aisea.ipa
+           elif [ -f "build/ios/Release-iphoneos/Runner.ipa" ]; then
+             cp build/ios/Release-iphoneos/Runner.ipa build/ios/ipa/aisea.ipa
+           fi
 
       - name: Archive IPA
         uses: actions/upload-artifact@v4
         with:
           name: release-ipa
-          path: build/ios/ipa
-          
+          path: |
+            build/ios/ipa
+            build/ios/archive/Runner.xcarchive/Products/Applications
+            build/ios/Release-iphoneos
+
 #      - name: Check IPA Path
 #        run: |
 #          echo "=================== IPA Location Check ==================="

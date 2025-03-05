@@ -1293,7 +1293,7 @@
 				DEVELOPMENT_TEAM = GVA54C2N44;
 				ENABLE_BITCODE = NO;
 				FLUTTER_APPLICATION_PATH = /Users/runner/work/oversearun/oversearun;
-				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.24.4-stable/arm64";
+				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.16.5-stable/arm64";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Runner/AppBusModule/ThirdModule/MarsXlog",
@@ -1443,7 +1443,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVA54C2N44;
 				ENABLE_BITCODE = NO;
 				FLUTTER_APPLICATION_PATH = /Users/runner/work/oversearun/oversearun;
-				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.24.4-stable/arm64";
+				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.16.5-stable/arm64";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Runner/AppBusModule/ThirdModule/MarsXlog",
@@ -1487,7 +1487,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = GVA54C2N44;
 				ENABLE_BITCODE = NO;
 				FLUTTER_APPLICATION_PATH = /Users/runner/work/oversearun/oversearun;
-				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.24.4-stable/arm64";
+				FLUTTER_ROOT = "/Users/runner/hostedtoolcache/flutter/3.16.5-stable/arm64";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Runner/AppBusModule/ThirdModule/MarsXlog",

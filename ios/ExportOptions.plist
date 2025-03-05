@@ -17,7 +17,7 @@
 	<key>provisioningProfiles</key>
 	<dict>
 		<key>com.Honeyaichatapp.ios2025</key>
-		<string>HonetAIDis</string>
+		<string>honeyai_dis</string>
 	</dict>
 	<key>signingCertificate</key>
 	<string>Apple Distribution</string>

@@ -66,24 +66,24 @@ jobs:
          
           keychain-password: 111111
 
-       # 添加详细的构建产物检查
-       - name: Check Build Artifacts
-         run: |
-           echo "检查构建目录结构："
-           ls -R build/
+      # 添加详细的构建产物检查
+      - name: Check Build Artifacts
+        run: |
+          echo "检查构建目录结构："
+          ls -R build/
           
-           echo "检查 IPA 文件："
-           find build -name "*.ipa" -type f
+          echo "检查 IPA 文件："
+          find build -name "*.ipa" -type f
           
-           # 确保输出目录存在
-           mkdir -p build/ios/ipa
+          # 确保输出目录存在
+          mkdir -p build/ios/ipa
           
-           # 如果 IPA 在其他位置，复制到期望的位置
-           if [ -f "build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa" ]; then
-             cp build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa build/ios/ipa/aisea.ipa
-           elif [ -f "build/ios/Release-iphoneos/Runner.ipa" ]; then
-             cp build/ios/Release-iphoneos/Runner.ipa build/ios/ipa/aisea.ipa
-           fi
+          # 如果 IPA 在其他位置，复制到期望的位置
+          if [ -f "build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa" ]; then
+              cp build/ios/archive/Runner.xcarchive/Products/Applications/Runner.ipa build/ios/ipa/aisea.ipa
+          elif [ -f "build/ios/Release-iphoneos/Runner.ipa" ]; then
+              cp build/ios/Release-iphoneos/Runner.ipa build/ios/ipa/aisea.ipa
+          fi
 
       - name: Archive IPA
         uses: actions/upload-artifact@v4

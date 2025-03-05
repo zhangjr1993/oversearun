@@ -98,17 +98,17 @@ jobs:
 
    
 
-      - name: Upload to App Store using altool
-        env:
-          IPA_PATH: "build/ios/ipa/aisea.ipa"
-          APPLE_ID: "pjmmh6jbh@hotmail.com"
-          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
-        run: |
-          xcrun altool --upload-app -f "$IPA_PATH" \
-            -t ios \
-            -u "$APPLE_ID" \
-            -p "$APP_SPECIFIC_PASSWORD" \
-            --verbose
+#      - name: Upload to App Store using altool
+#        env:
+#          IPA_PATH: "build/ios/ipa/aisea.ipa"
+#          APPLE_ID: "pjmmh6jbh@hotmail.com"
+#          APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
+#        run: |
+#          xcrun altool --upload-app -f "$IPA_PATH" \
+#            -t ios \
+#            -u "$APPLE_ID" \
+#            -p "$APP_SPECIFIC_PASSWORD" \
+#            --verbose
 
 #      - name: Upload to App Store using altool
 #        env:

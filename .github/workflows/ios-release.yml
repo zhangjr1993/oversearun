@@ -69,7 +69,7 @@ jobs:
       - name: Archive IPA
         uses: actions/upload-artifact@v4
         with:
-          name: oversearun
+          name: release-ipa
           path: build/ios/ipa
 
 #      - name: Check IPA Path
@@ -99,7 +99,7 @@ jobs:
 
       - name: Upload to App Store using altool
         env:
-          IPA_PATH: "build/ios/ipa/oversearun.ipa"
+          IPA_PATH: "build/ios/ipa/aisea.ipa"
           APPLE_ID: "pjmmh6jbh@hotmail.com"
           APP_SPECIFIC_PASSWORD: "jjpl-sliy-dcxy-kgus"
         run: |
